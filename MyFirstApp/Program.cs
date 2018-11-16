@@ -21,6 +21,8 @@ namespace RockPaperScissors
 
             Console.WriteLine("**********************************");
             Console.WriteLine("Welcome to Rock, Paper, Scissors!");
+            Program.instructionsForRockPaperScissors();
+
             while (bestOf != "Y" && bestOf != "N")
             {
                 Console.WriteLine("Would you like to play a \"best-of\" match? (Y/N)");
@@ -113,6 +115,31 @@ namespace RockPaperScissors
             Console.ReadLine();
         }
 
+        static void instructionsForRockPaperScissors()
+        { 
+            Console.WriteLine("Do you need instructions?");
+            string instructions = Console.ReadLine();
+            string instructionsNeeded = instructions.ToUpper();
+            if (instructionsNeeded == "Y" || instructionsNeeded == "YES")
+            {
+                Console.WriteLine("\nThis game consists of three types of questions.");
+                Console.WriteLine("Yes/No questions can be answered with any of the following:");
+                Console.WriteLine("-Yes can be entered as either \"Yes\" or \"Y\"");
+                Console.WriteLine("-Yes can be entered as either \"No\" or \"N\"");
+                Console.WriteLine("");
+                Console.WriteLine("The game may ask you for a number of rounds.  This must be a number.");
+                Console.WriteLine("When asked to \"Choose your weapon!\" you may pick any of the following:");
+                Console.WriteLine("-\"Rock\" or \"R\"");
+                Console.WriteLine("-\"Paper\" or \"P\"");
+                Console.WriteLine("-\"Scissors\" or \"S\"");
+                Console.WriteLine("");
+                Console.WriteLine("Don't worry, these choices are not case-sensitive!");
+                Console.WriteLine("\n");
+                Console.WriteLine("Once you have finished reading, please press any key to continue.");
+                Console.ReadLine();
+            }
 
+        }
     }
 }
+
