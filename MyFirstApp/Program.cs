@@ -11,7 +11,7 @@ namespace RockPaperScissors
         static void Main(string[] args)
         {
             string[] weapons = { "Rock", "Paper", "Scissors" };
-            int bestOfCounter = 1;
+            uint bestOfCounter = 1;
             int playerWeapon = -1;
             int playerWins = 0;
             int computerWins = 0;
@@ -41,9 +41,10 @@ namespace RockPaperScissors
                 if (bestOf == "Y" || bestOf == "YES")
                 {
                     Console.WriteLine("How many rounds do you want to play?");
-                    while (!int.TryParse(Console.ReadLine(), out bestOfCounter))
+                    while (!uint.TryParse(Console.ReadLine(), out bestOfCounter))
                     {
-                        Console.WriteLine("Please enter a number.\n");
+                        Console.WriteLine("Please enter a number.");
+                        Console.WriteLine("The number must be positive.\n");
                     }
                 }
                 for (int roundTicker = 0; roundTicker < bestOfCounter;)
