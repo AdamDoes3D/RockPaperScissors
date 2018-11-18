@@ -27,21 +27,24 @@ namespace RockPaperScissors
             while (playAgain != "NO" && playAgain != "N")
             {
                 playAgain = null;
-                while (bestOf != "Y" && bestOf != "N")
+                while (bestOf != "Y" && bestOf != "N" && bestOf != "YES" && bestOf != "NO")
                 {
                     Console.WriteLine("\nWould you like to play a \"best-of\" match?");
                     string yesNo = Console.ReadLine();
                     bestOf = yesNo.ToUpper();
-                    if (bestOf != "Y" && bestOf != "N")
+                    if (bestOf != "Y" && bestOf != "N" && bestOf != "YES" && bestOf != "NO")
                     {
                         Console.WriteLine("\nNot a valid input, try again.");
                         Console.WriteLine("******************************");
                     }
                 }
-                if (bestOf == "Y")
+                if (bestOf == "Y" || bestOf == "YES")
                 {
                     Console.WriteLine("How many rounds do you want to play?");
-                    bestOfCounter = Convert.ToInt32(Console.ReadLine());
+                    while (!int.TryParse(Console.ReadLine(), out bestOfCounter))
+                    {
+                        Console.WriteLine("Please enter a number.\n");
+                    }
                 }
                 for (int roundTicker = 0; roundTicker < bestOfCounter;)
                 {
@@ -59,7 +62,7 @@ namespace RockPaperScissors
                         if (playerChoice != "R" && playerChoice != "P" && playerChoice != "S" && playerChoice != "ROCK" && playerChoice != "PAPER" && playerChoice != "SCISSORS")
                         {
                             Console.Write($"\n{playerChoice} is not a valid input.");
-                            Console.Write("\nPlease try again with Rock, Paper, or Scissors.");
+                            Console.Write("\nPlease try again with Rock (R), Paper (P), or Scissors (S).");
                             Console.WriteLine("\n**********************************");
                         }
                     }
@@ -148,12 +151,12 @@ namespace RockPaperScissors
         {
             string instructionsNeeded = null;
 
-            while (instructionsNeeded != "Y" && instructionsNeeded != "N")
+            while (instructionsNeeded != "Y" && instructionsNeeded != "N" && instructionsNeeded != "YES" && instructionsNeeded != "NO")
             {
                 Console.WriteLine("Do you need instructions?");
                 string instructions = Console.ReadLine();
                 instructionsNeeded = instructions.ToUpper();
-                if (instructionsNeeded != "Y" && instructionsNeeded != "N")
+                if (instructionsNeeded != "Y" && instructionsNeeded != "N" && instructionsNeeded != "YES" && instructionsNeeded != "NO")
                 {
                     Console.WriteLine("\nPlease choose either \"Yes\" or \"No\".");
                     Console.WriteLine("\n******************************");
