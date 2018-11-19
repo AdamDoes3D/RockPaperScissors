@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RockPaperScissors
-{
+namespace RockPaperScissors {
     class Program
     {
         static void Main(string[] args)
@@ -24,10 +19,11 @@ namespace RockPaperScissors
             Console.WriteLine("Welcome to Rock, Paper, Scissors!");
             Program.instructionsForRockPaperScissors();
 
-            while (playAgain != "NO" && playAgain != "N")
+            while (playAgain != "NO" && playAgain != "N")   
             {
                 playAgain = null;
-                while (bestOf != "Y" && bestOf != "N" && bestOf != "YES" && bestOf != "NO")
+                var validator = new YesNoValidator();
+                while (!validator.Validate(new UserChoice(bestOf)).IsValid)
                 {
                     Console.WriteLine("\nWould you like to play a \"best-of\" match?");
                     string yesNo = Console.ReadLine();
